@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 1.x.x.x
 =======
 
@@ -23,6 +24,21 @@ Breaking Changes
 ----------------
 
 - ImageGadget : Removed setters and getters for `DisplayTransform`, `UseGPU`, `Clipping`, `Exposure`, `Gamma`.  Instead use `ViewportGadget::setPostProcessShader()` to set up a GPU color transform, or set the plug values on `ImageView`.
+=======
+1.0.x.x (relative to 1.0.3.0)
+=======
+
+Features
+--------
+
+- Edit Menu : Added "Duplicate with Inputs" menu item, with <kbd>Ctrl</kbd>+<kbd>D</kbd> shortcut.
+- StandardAttributes : Added `automaticInstancing` plug to allow instancing to be disabled on selected locations. Currently supported only by the Arnold renderer.
+
+Fixes
+-----
+
+- CyclesOptions : Fixed errors in section summaries.
+>>>>>>> upstream/1.0_maintenance
 
 1.0.3.0 (relative to 1.0.2.1)
 =======
