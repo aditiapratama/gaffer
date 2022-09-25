@@ -57,13 +57,8 @@ EnsureSConsVersion( 3, 0, 2 )  # Substfile is a default builder as of 3.0.2
 ###############################################################################################
 
 gafferMilestoneVersion = 1 # for announcing major milestones - may contain all of the below
-<<<<<<< HEAD
-gafferMajorVersion = 1 # backwards-incompatible changes
-gafferMinorVersion = 0 # new backwards-compatible features
-=======
 gafferMajorVersion = 0 # backwards-incompatible changes
 gafferMinorVersion = 5 # new backwards-compatible features
->>>>>>> upstream/1.0_maintenance
 gafferPatchVersion = 0 # bug fixes
 gafferVersionSuffix = "" # used for alpha/beta releases : "a1", "b2", etc.
 
