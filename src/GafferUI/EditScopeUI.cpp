@@ -39,6 +39,7 @@
 #include "GafferUI/StandardNodeGadget.h"
 
 #include "Gaffer/EditScope.h"
+#include "Gaffer/MetadataAlgo.h"
 
 #include "boost/bind/bind.hpp"
 
@@ -79,6 +80,11 @@ class EditScopePlugAdder : public PlugAdder
 				return false;
 			}
 
+			if( MetadataAlgo::readOnly( m_editScope.get() ) )
+			{
+				return false;
+			}
+
 			return true;
 		}
 
@@ -93,6 +99,9 @@ class EditScopePlugAdder : public PlugAdder
 			{
 				m_editScope->inPlug()->setInput( endpoint );
 			}
+
+			applyEdgeMetadata( m_editScope->inPlug(), endpoint->direction() == Plug::In );
+			applyEdgeMetadata( m_editScope->outPlug(), endpoint->direction() == Plug::Out );
 		}
 
 	private :

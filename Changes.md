@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 1.x.x.x
 =======
 
@@ -27,17 +28,85 @@ Breaking Changes
 =======
 1.0.x.x (relative to 1.0.3.0)
 =======
+1.0.5.0 (relative to 1.0.4.0)
+=======
+
+Features
+--------
+
+- Rename : Added a new node for renaming scene locations (#1201).
+- LookTransform : Added a new node for applying OpenColorIO looks to images.
+
+Improvements
+------------
+
+- SplinePlug : Added `Constant` interpolation mode.
+- SceneReader : Added reading of more Alembic GeomParam types. Specifically `unsigned char`, `uint16`, `int16` and `uint32` GeomParams are loaded as `UCharVectorData`, `UShortVectorData`, `ShortVectorData` and `UIntVectorData` PrimitiveVariables respectively.
+- SceneWriter : Added writing of more Alembic GeomParam types, mirroring the improved reading mentioned above.
+- Light Editor : Added the ability to select linked objects and to delete lights. Both commands can can be accessed by right-clicking a light name and selecting either 'Select Linked Objects' or 'Delete'.
+- Graph Editor : When changing the root of the Graph Editor (such as entering or exiting a Box), framing is now restored specifically for the current Graph Editor. Previously, a single framing history was used for all Graph Editors.
+
+Fixes
+-----
+
+- GraphEditor : Fixed handling of errors on `Dot.labelType` and `Dot.label` plugs.
+- EditScope : Fixed mislocated plug nodules when connecting a new `EditScope` to a `BoxIn`, `BoxOut` or `Box` node.
+- Backdrop : Fixed bug selecting or moving a backdrop when zoomed out in the GraphEditor, where drag-resizing the top edge was incorrectly being given precedence.
+- CDL : Fixed handling of values for the `direction` plug. Previously, `OCIO::TransformDirection` enum values were being used directly as plug values, but OpenColorIO 2 broke compatibility by changing the enum. A new `GafferImage::CDL::Direction` enum provides stable values for use in the `CDL.direction` plug, insulating Gaffer from future changes.
+- ViewPlugValueWidget :
+  - Fixed bug which caused images to be evaluated in the wrong context.
+  - Fixed error handling bug which could prevent the NodeEditor from building.
+- CropWindowTool :
+  - Fixed bug which caused images to be evaluated in the wrong context.
+  - Fixed bug handling images with non-default views.
+- Cycles : Fixed rendering with a non-default crop window.
+- Arnold : Fixed handling of closure shader connections in USD materials exported from Maya.
+
+Build
+-----
+
+- Cortex : Updated to 10.4.2.1.
+
+1.0.4.0 (relative to 1.0.3.0)
+>>>>>>> upstream/1.0_maintenance
+=======
 
 Features
 --------
 
 - Edit Menu : Added "Duplicate with Inputs" menu item, with <kbd>Ctrl</kbd>+<kbd>D</kbd> shortcut.
+- OptionTweaks : Added node for tweaking options in a scene.
+- OptionQuery : Added node for querying options from a scene.
 - StandardAttributes : Added `automaticInstancing` plug to allow instancing to be disabled on selected locations. Currently supported only by the Arnold renderer.
+
+Improvements
+------------
+
+- TweakPlug : Added the ability to set `InternedStringData` from `StringData`.
+- GraphEditor : Added a warning for attempts to open the node creation menu in a read-only graph.
+- Light Editor :
+  - Added explanation to cell popup when a parameter cannot be edited because there are no editable sources.
+  - Added an error icon to a cell with an explanation in the tooltip when there is an error computing its value (#4805).
 
 Fixes
 -----
 
+- SceneReader :
+  - Fixed reading of Alembic files with animated visibility.
+  - Fixed reading of primitive variables from UsdGeomPointInstancers.
+- GraphEditor : Fixed bugs which allowed new connections to be made in read-only graphs.
+- NodeEditor : Fixed bugs which allowed plugs to be added to read-only tweaks nodes.
 - CyclesOptions : Fixed errors in section summaries.
+<<<<<<< HEAD
+>>>>>>> upstream/1.0_maintenance
+=======
+- NoduleLayout : Fixed shutdown crashes triggered by custom gadgets implemented in Python.
+- ShaderTweaks : Fixed error when attempting to use a `:` in a parameter name.
+
+Build
+-----
+
+- Cortex : Updated to 10.4.1.2.
 >>>>>>> upstream/1.0_maintenance
 
 1.0.3.0 (relative to 1.0.2.1)
@@ -349,6 +418,28 @@ Build
   - Subprocess32 : Now packaged as a regular module rather than as a `.egg` package.
   - TBB : Updated to version 2020.3.
   - USD : Updated to version 21.11.
+
+0.61.14.6 (relative to 0.61.14.5)
+=========
+
+Fixes
+-----
+
+- GraphEditor : Fixed handling of errors on `Dot.labelType` and `Dot.label` plugs.
+
+0.61.14.5 (relative to 0.61.14.4)
+=========
+
+Fixes
+------
+
+- SceneReader : Fixed reading of primitive variables from UsdGeomPointInstancers.
+- NoduleLayout : Fixed shutdown crashes triggered by custom gadgets implemented in Python.
+
+Build
+-----
+
+- Updated to Cortex 10.3.7.2.
 
 0.61.14.4 (relative to 0.61.14.3)
 =========

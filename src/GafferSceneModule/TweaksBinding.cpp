@@ -40,13 +40,14 @@
 #include "TweaksBinding.h"
 
 #include "GafferScene/AttributeTweaks.h"
-#include "GafferScene/ShaderTweaks.h"
 #include "GafferScene/CameraTweaks.h"
+#include "GafferScene/OptionTweaks.h"
+#include "GafferScene/ShaderTweaks.h"
 
 #include "GafferBindings/DependencyNodeBinding.h"
 #include "GafferBindings/PlugBinding.h"
-#include "GafferBindings/ValuePlugBinding.h"
 #include "GafferBindings/SerialisationBinding.h"
+#include "GafferBindings/ValuePlugBinding.h"
 
 using namespace boost::python;
 using namespace Gaffer;
@@ -58,4 +59,5 @@ void GafferSceneModule::bindTweaks()
 	DependencyNodeClass<ShaderTweaks>();
 	DependencyNodeClass<CameraTweaks>();
 	DependencyNodeClass<AttributeTweaks>();
+	DependencyNodeClass<OptionTweaks>();
 }
